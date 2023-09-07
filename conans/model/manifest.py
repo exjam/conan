@@ -91,7 +91,7 @@ class FileTreeManifest(object):
         """
         files, _ = gather_files(folder)
         # The folders symlinks are discarded for the manifest
-        for f in (PACKAGE_TGZ_NAME, EXPORT_TGZ_NAME, CONAN_MANIFEST, EXPORT_SOURCES_TGZ_NAME):
+        for f in (PACKAGE_TGZ_NAME, PACKAGE_TZSTD_NAME, EXPORT_TGZ_NAME, CONAN_MANIFEST, EXPORT_SOURCES_TGZ_NAME):
             files.pop(f, None)
 
         file_dict = {}

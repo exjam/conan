@@ -8,7 +8,7 @@ from conan.api.output import ConanOutput
 from conans.client.source import retrieve_exports_sources
 from conans.errors import ConanException, NotFoundException
 from conans.paths import (CONAN_MANIFEST, CONANFILE, EXPORT_SOURCES_TGZ_NAME,
-                          EXPORT_TGZ_NAME, PACKAGE_TGZ_NAME, CONANINFO)
+                          EXPORT_TGZ_NAME, PACKAGE_TGZ_NAME, PACKAGE_TZSTD_NAME, CONANINFO)
 from conans.util.files import (clean_dirty, is_dirty, gather_files,
                                gzopen_without_timestamps, set_dirty_context_manager, mkdir)
 
@@ -171,8 +171,8 @@ class PackagePreparator:
             package_file_name = PACKAGE_TGZ_NAME
             package_file = os.path.join(download_pkg_folder, PACKAGE_TGZ_NAME)
         elif compression_format == 'zstd':
-            package_file_name = os.path.splitext(PACKAGE_TGZ_NAME)[0] + '.tar.zst'
-            package_file = os.path.join(download_pkg_folder, package_file_name)
+            package_file_name = PACKAGE_TZSTD_NAME
+            package_file = os.path.join(download_pkg_folder, PACKAGE_TZSTD_NAME)
         else:
             raise ConanException(f"Unsupported compression level {compression_format}")
 
